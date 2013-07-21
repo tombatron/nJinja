@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{983CE543-91B6-495E-A0CE-D623590DB8D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>nJinja</RootNamespace>
+    <AssemblyName>nJinja</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IronPython">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Modules">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\IronPython.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.SQLite">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\IronPython.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="IronPython.Wpf">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\IronPython.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="jinja2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>jinja2_package\jinja2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.AspNet">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\Microsoft.Scripting.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata">
+      <HintPath>..\packages\IronPython.2.7.4-beta1\lib\Net40\Microsoft.Scripting.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicStreamContentProvider.cs" />
+    <Compile Include="Environment.cs" />
+    <Compile Include="Jinja2Wrapper.cs" />
+    <Compile Include="nJinjaView.cs" />
+    <Compile Include="nJinjaViewEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Template.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jinja2_package\dependencies\markupsafe\_compat.py" />
+    <Content Include="jinja2_package\dependencies\markupsafe\_constants.py" />
+    <Content Include="jinja2_package\dependencies\markupsafe\_native.py" />
+    <Content Include="jinja2_package\dependencies\markupsafe\__init__.py" />
+    <Content Include="jinja2_package\jinja2.dll" />
+    <Content Include="jinja2_package\jinja2\bccache.py" />
+    <Content Include="jinja2_package\jinja2\compiler.py" />
+    <Content Include="jinja2_package\jinja2\constants.py" />
+    <Content Include="jinja2_package\jinja2\debug.py" />
+    <Content Include="jinja2_package\jinja2\defaults.py" />
+    <Content Include="jinja2_package\jinja2\environment.py" />
+    <Content Include="jinja2_package\jinja2\exceptions.py" />
+    <Content Include="jinja2_package\jinja2\ext.py" />
+    <Content Include="jinja2_package\jinja2\filters.py" />
+    <Content Include="jinja2_package\jinja2\lexer.py" />
+    <Content Include="jinja2_package\jinja2\loaders.py" />
+    <Content Include="jinja2_package\jinja2\meta.py" />
+    <Content Include="jinja2_package\jinja2\nodes.py" />
+    <Content Include="jinja2_package\jinja2\optimizer.py" />
+    <Content Include="jinja2_package\jinja2\parser.py" />
+    <Content Include="jinja2_package\jinja2\runtime.py" />
+    <Content Include="jinja2_package\jinja2\sandbox.py" />
+    <Content Include="jinja2_package\jinja2\tests.py" />
+    <Content Include="jinja2_package\jinja2\utils.py" />
+    <Content Include="jinja2_package\jinja2\visitor.py" />
+    <Content Include="jinja2_package\jinja2\_compat.py" />
+    <Content Include="jinja2_package\jinja2\_stringdefs.py" />
+    <Content Include="jinja2_package\jinja2\__init__.py" />
+    <EmbeddedResource Include="jinja2_wrapper.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
