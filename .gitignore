@@ -46,6 +46,5 @@ Ankh.NoLoad
 #Other
 .svn
 
-# Include DLLs if they're in the NuGet packages directory
-!/packages/*/lib/*.dll
-!/packages/*/lib/*/*.dll
+packages/*
+!packages/repositories.config
