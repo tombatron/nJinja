@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nJinja", "nJinja\nJinja.csproj", "{983CE543-91B6-495E-A0CE-D623590DB8D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nJinjaTesting", "nJinjaTesting\nJinjaTesting.csproj", "{61B94D29-26E5-4E9E-B13C-9C5E736E23F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nJinja.MvcTest", "nJinja.MvcTest\nJinja.MvcTest.csproj", "{F8B46893-F17D-44EE-BC80-11546D55504A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{983CE543-91B6-495E-A0CE-D623590DB8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983CE543-91B6-495E-A0CE-D623590DB8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983CE543-91B6-495E-A0CE-D623590DB8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983CE543-91B6-495E-A0CE-D623590DB8D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B94D29-26E5-4E9E-B13C-9C5E736E23F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B94D29-26E5-4E9E-B13C-9C5E736E23F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B94D29-26E5-4E9E-B13C-9C5E736E23F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B94D29-26E5-4E9E-B13C-9C5E736E23F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B46893-F17D-44EE-BC80-11546D55504A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B46893-F17D-44EE-BC80-11546D55504A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B46893-F17D-44EE-BC80-11546D55504A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B46893-F17D-44EE-BC80-11546D55504A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
