@@ -9,6 +9,10 @@ def get_environment(template_root, options=None):
     return Environment(loader=FileSystemLoader(template_root))
 
 
+def add_custom_filter(environment, custom_filter_name, custom_filter):
+    environment.filters[custom_filter_name] = custom_filter
+
+
 def render_template(environment, template_name, generic_context):
         context = {item.Key: item.Value for item in generic_context} if generic_context else {}
 

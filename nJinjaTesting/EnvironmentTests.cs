@@ -1,5 +1,6 @@
 ﻿namespace nJinjaTesting
 {
+    using System;
     using System.IO;
     using NUnit.Framework;
 
@@ -26,6 +27,29 @@
 
             Assert.That(result, Contains.Substring("Base Template"));
             Assert.That(result, Contains.Substring("Child Template"));
+        }
+
+        /// <summary>
+        /// Add a simple custom filter to the Environment and then use it.
+        /// 
+        /// The kicker here is that we are using C# to construct custom
+        /// Jinja2 filters...
+        /// </summary>
+        [Test]
+        public void CanAddCustomFilter()
+        {
+            Func<string, string> redactedFilter = (x) =>
+            {
+                return new string('*', x.Length);
+            };
+
+            _env.AppendFilter("redacted", redactedFilter);
+
+            var context = new { testPayLoad = "Hello World" };
+
+            var result = _env.Render("basicCustomFilter.html", context);
+
+            Assert.That(result, Contains.Substring("**********"));
         }
     }
 }

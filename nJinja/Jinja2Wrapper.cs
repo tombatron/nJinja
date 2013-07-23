@@ -1,5 +1,7 @@
 ﻿namespace nJinja
 {
+    // TODO: Clean this noise in here up...
+
     using System;
     using System.Collections.Generic;
     using System.Reflection;
@@ -77,6 +79,16 @@
             return getEnvironment(templateRoot, options);
         }
 
+        public void AddCustomFilterToEnvironment(dynamic environment, string filterName, Delegate customFilter)
+        {
+            var scope = getScriptScope();
+
+            var pyFunc = scope.GetVariable<PythonFunction>("add_custom_filter");
+            var addCustomFilterFunction = _engine.Operations.ConvertTo<Action<dynamic, dynamic, dynamic>>(pyFunc);
+
+            addCustomFilterFunction(environment, filterName, customFilter);
+        }
+
         public string RenderTemplate(dynamic environment, string templateName, Dictionary<string, dynamic> context)
         {
             var scope = getScriptScope();
@@ -96,6 +108,13 @@
 
             return renderTemplateStringFunction(templateSource, context);
         }
+
+        public string RenderTemplateString(dynamic environment, string templateSource, Dictionary<string, dynamic> context)
+        {
+            // It'd be nice to be able to render an adhoc template using a preconfigured environment...
+            throw new NotImplementedException();
+        }
+
 
         #endregion
 

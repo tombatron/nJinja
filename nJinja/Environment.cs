@@ -1,5 +1,6 @@
 ﻿namespace nJinja
 {
+    using System;
 
     public class Environment
     {
@@ -17,6 +18,13 @@
             return _jinja2.RenderTemplate(_jinja2_env, templateName, Utils.ConvertToJinjaContext(context));
         }
 
+        public void AppendFilter(string filterName, Delegate customFilter)
+        {
+            _jinja2.AddCustomFilterToEnvironment(_jinja2_env, filterName, customFilter);
+        }
+
+        #region Static Business
+
         private static Environment _instance;
         public static Environment GetInstance()
         {
@@ -32,5 +40,7 @@
                 _instance = new Environment(templatePath);
             }
         }
+
+        #endregion
     }
 }
