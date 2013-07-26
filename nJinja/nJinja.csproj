@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="BasicStreamContentProvider.cs" />
     <Compile Include="Environment.cs" />
+    <Compile Include="Exceptions\EnvironmentException.cs" />
     <Compile Include="Jinja2Wrapper.cs" />
     <Compile Include="nJinjaView.cs" />
     <Compile Include="nJinjaViewEngine.cs" />

@@ -1,6 +1,7 @@
 ﻿namespace nJinja
 {
     using System;
+    using nJinja.Exceptions;
 
     public class Environment
     {
@@ -28,7 +29,10 @@
         private static Environment _instance;
         public static Environment GetInstance()
         {
-            // TODO: Throw exception here if the environment hasn't been bootstrapped.
+            if (_instance == null)
+            {
+                throw new EnvironmentException("You must bootstrap the Jinja2 environment first...");
+            }
 
             return _instance;
         }

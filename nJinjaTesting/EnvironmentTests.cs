@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using nJinja.Exceptions;
     using NUnit.Framework;
 
     [TestFixture]
@@ -50,6 +51,20 @@
             var result = _env.Render("basicCustomFilter.html", context);
 
             Assert.That(result, Contains.Substring("**********"));
+        }
+
+        /// <summary>
+        /// In the event that someone tries to get an instance of 'Environment'
+        /// before the environment has been bootstrapped, we'll throw an
+        /// appropriate exception.
+        /// </summary>
+        [Test]
+        public void ExceptionIfEnvironmentNotBootstrappedBeforeGettingInstance()
+        {
+            Assert.Throws<EnvironmentException>(() =>
+            {
+                nJinja.Environment.GetInstance();
+            });
         }
     }
 }
