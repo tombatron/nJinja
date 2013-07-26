@@ -18,7 +18,7 @@
 
         public void ReleaseView(ControllerContext controllerContext, IView view)
         {
-            //throw new System.NotImplementedException();
+            // No-op, for now. 
         }
     }
 }
