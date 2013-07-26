@@ -79,7 +79,7 @@
             return getEnvironment(templateRoot, options);
         }
 
-        public void AddCustomFilterToEnvironment(dynamic environment, string filterName, Delegate customFilter)
+        public void AddCustomFilterToEnvironment(dynamic environment, string filterName, dynamic customFilter)
         {
             var scope = getScriptScope();
 

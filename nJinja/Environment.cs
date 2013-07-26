@@ -38,7 +38,7 @@
         /// </summary>
         /// <param name="filterName">The name of custom filter.</param>
         /// <param name="customFilter">A delegate that defines the logic of the custom filter.</param>
-        public void AppendFilter(string filterName, Delegate customFilter)
+        public void AppendFilter(string filterName, dynamic customFilter)
         {
             _jinja2.AddCustomFilterToEnvironment(_jinja2_env, filterName, customFilter);
         }
