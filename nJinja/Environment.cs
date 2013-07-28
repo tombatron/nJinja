@@ -1,6 +1,6 @@
 ﻿namespace nJinja
 {
-    using System;
+    using System.Collections.Generic;
     using nJinja.Exceptions;
 
     public class Environment
@@ -70,6 +70,22 @@
             if (_instance == null)
             {
                 _instance = new Environment(templatePath);
+            }
+        }
+
+        /// <summary>
+        /// Spin up a singleton instance of the nJinja Environment as provide some
+        /// custom template filters. 
+        /// </summary>
+        /// <param name="templatePath">Absolute path to the folder containing Jinja2 style templates.</param>
+        /// <param name="customFilters">A list of custom template filters.</param>
+        public static void Bootstrap(string templatePath, IDictionary<string, dynamic> customFilters)
+        {
+            Bootstrap(templatePath);
+
+            foreach (var cf in customFilters)
+            {
+                _instance.AppendFilter(cf.Key, cf.Value);
             }
         }
 
