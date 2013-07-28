@@ -1,7 +1,5 @@
 ﻿namespace nJinja
 {
-    // TODO: Clean this noise in here up...
-
     using System;
     using System.Collections.Generic;
     using System.Reflection;
@@ -69,6 +67,12 @@
 
         #region Wrapped Jinja2 Methods
 
+        /// <summary>
+        /// Wrapper method that will spin up a Jinja2 environment using the Python Jinja2 library.
+        /// </summary>
+        /// <param name="templateRoot">Absolute path to Jinja2 style templates.</param>
+        /// <param name="options">Currently this parameter is unused.</param>
+        /// <returns>Jinja2 Environment object.</returns>
         public dynamic GetEnvironment(string templateRoot, dynamic options)
         {
             var scope = getScriptScope();
@@ -79,6 +83,13 @@
             return getEnvironment(templateRoot, options);
         }
 
+        /// <summary>
+        /// Wrapper method that takes an already initialized Jinja2 environment and adds a custom
+        /// filter to it. 
+        /// </summary>
+        /// <param name="environment">Initialed Jinja2 Environment object.</param>
+        /// <param name="filterName">Name of the filter that you're adding.</param>
+        /// <param name="customFilter">A delegate instance that represents the method that powers your custom filter.</param>
         public void AddCustomFilterToEnvironment(dynamic environment, string filterName, dynamic customFilter)
         {
             var scope = getScriptScope();
@@ -89,6 +100,14 @@
             addCustomFilterFunction(environment, filterName, customFilter);
         }
 
+        /// <summary>
+        /// Wrapper method that takes an already initialized Jinja2 environment and renders an
+        /// existing template.
+        /// </summary>
+        /// <param name="environment">Initialized Jinja2 Environment object.</param>
+        /// <param name="templateName">Relative path to the Jinja2 style template that you want to render.</param>
+        /// <param name="context">The context that you expect the Jinja2 template engine to apply to your template.</param>
+        /// <returns>A fully rendered template.</returns>
         public string RenderTemplate(dynamic environment, string templateName, Dictionary<string, dynamic> context)
         {
             var scope = getScriptScope();
@@ -99,6 +118,13 @@
             return renderTemplateFunction(environment, templateName, context);
         }
 
+        /// <summary>
+        /// Wrapper method that accepts ad-hoc Jinja2 style template source and renders it using the
+        /// provided context. 
+        /// </summary>
+        /// <param name="templateSource">A unicode string that defines the template.</param>
+        /// <param name="context">The context that you expect the Jinja2 template engine to apply to your template.</param>
+        /// <returns>A fully rendered template.</returns>
         public string RenderTemplateString(string templateSource, Dictionary<string, dynamic> context)
         {
             var scope = getScriptScope();
@@ -109,6 +135,14 @@
             return renderTemplateStringFunction(templateSource, context);
         }
 
+        /// <summary>
+        /// Wrapper method that accepts ad-hoc Jinja2 style template source and renders it using an already
+        /// boostrapped Jinja2 environment and the provided context. 
+        /// </summary>
+        /// <param name="environment">Initialized Jinja2 Environment object.</param>
+        /// <param name="templateSource">A unicode string that defines the template.</param>
+        /// <param name="context">The context that you expect the Jinja2 template engine to apply to your template.</param>
+        /// <returns>A fully rendered template.</returns>
         public string RenderTemplateString(dynamic environment, string templateSource, Dictionary<string, dynamic> context)
         {
             // It'd be nice to be able to render an adhoc template using a preconfigured environment...
