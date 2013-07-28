@@ -1,6 +1,7 @@
 ﻿namespace nJinjaTesting
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using nJinja.Exceptions;
     using NUnit.Framework;
@@ -9,12 +10,13 @@
     public class EnvironmentTests
     {
         nJinja.Environment _env;
+        string _templatePath;
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            var templatePath = Path.Combine(System.Environment.CurrentDirectory, "Templates");
-            _env = new nJinja.Environment(templatePath);
+            _templatePath = Path.Combine(System.Environment.CurrentDirectory, "Templates");
+            _env = new nJinja.Environment(_templatePath);
         }
 
         /// <summary>
@@ -65,6 +67,46 @@
             {
                 nJinja.Environment.GetInstance();
             });
+        }
+
+        /// <summary>
+        /// Can we bootstrap the nJinja environment with just a template path?
+        /// </summary>
+        [Test]
+        public void CanBootstrapEnvironment()
+        {
+            nJinja.Environment.Bootstrap(_templatePath);
+
+            var environment = nJinja.Environment.GetInstance();
+
+            Assert.That(environment, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Can we bootstrap the nJinja environment with a template path and 
+        /// custom filters?
+        /// </summary>
+        [Test]
+        public void CanBootstrapEnvironmentWithCustomTemplateFilters()
+        {
+            Func<string, string> redactedFilter = (x) =>
+            {
+                return new string('*', x.Length);
+            };
+
+            var customFilters = new Dictionary<string, dynamic>();
+            customFilters.Add("redacted", redactedFilter);
+
+            nJinja.Environment.Bootstrap(_templatePath, customFilters);
+
+            var environment = nJinja.Environment.GetInstance();
+
+            var context = new { testPayLoad = "Hello World" };
+
+            var result = environment.Render("basicCustomFilter.html", context);
+
+            // Ensure that the custom filter was applied...
+            Assert.That(result, Contains.Substring("**********"));
         }
     }
 }
