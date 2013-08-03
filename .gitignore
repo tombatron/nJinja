@@ -45,6 +45,6 @@ Ankh.NoLoad
 
 #Other
 .svn
-
+TestResult.xml
 packages/*
 !packages/repositories.config
