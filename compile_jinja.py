@@ -10,11 +10,11 @@ def get_complete_file_list(root_directory):
 
 base_directory = os.path.dirname(__file__)
 
-jinja2_src_directory = os.path.join(base_directory, 'jinja2_package/jinja2')
-dependencies_src_directory = os.path.join(base_directory, 'jinja2_package/dependencies')
+jinja2_src_directory = os.path.join(base_directory, 'nJinja/jinja2_package/jinja2')
+dependencies_src_directory = os.path.join(base_directory, 'nJinja/jinja2_package/dependencies')
 
 all_files = get_complete_file_list(jinja2_src_directory) + get_complete_file_list(dependencies_src_directory)
 
-jinja2_bin_path = os.path.join(os.path.dirname(__file__), 'jinja2_package/jinja2.dll')
+jinja2_bin_path = os.path.join(os.path.dirname(__file__), 'nJinja/jinja2_package/jinja2.dll')
 
 clr.CompileModules(jinja2_bin_path, *all_files)
