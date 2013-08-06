@@ -114,5 +114,19 @@
             // Ensure that the custom filter was applied...
             Assert.That(result, Contains.Substring("**********"));
         }
+
+        /// <summary>
+        /// Can we render an adhoc template using the preconfigured nJinja
+        /// environment?
+        /// </summary>
+        [Test]
+        public void CanRenderAdhocTemplateUsingEnvironment()
+        {
+            var template = "Hello {{ recipient}}!";
+
+            var result = _env.RenderAdhocTemplate(template, new { recipient = "world" });
+
+            Assert.That(result, Is.EqualTo("Hello World!"));
+        }
     }
 }
