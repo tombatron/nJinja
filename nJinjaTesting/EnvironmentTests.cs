@@ -19,6 +19,12 @@
             _env = new nJinja.Environment(_templatePath);
         }
 
+        [TearDown]
+        public void TestTearDown()
+        {
+            nJinja.Environment.DestroyInstance();
+        }
+
         /// <summary>
         /// The template used for the test here is a simple template that
         /// inherits from a base template. 

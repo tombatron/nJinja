@@ -62,6 +62,16 @@
         }
 
         /// <summary>
+        /// This method allows for destroying the current singleton instance of the nJinja Environment. 
+        /// 
+        /// If the instance is already null, then this method really doesn't have an affect now does it?
+        /// </summary>
+        public static void DestroyInstance()
+        {
+            _instance = null;
+        }
+
+        /// <summary>
         /// Spin up a singleton instance of the nJinja Environment.
         /// </summary>
         /// <param name="templatePath">Absolute path to the folder containing Jinja2 style templates.</param>
