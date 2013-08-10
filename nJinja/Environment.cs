@@ -34,18 +34,6 @@
         }
 
         /// <summary>
-        /// Render a template that is passed in as a string parameter instead of a partial path to
-        /// a template.
-        /// </summary>
-        /// <param name="adhocTemplate">The template source.</param>
-        /// <param name="context">The context to apply.</param>
-        /// <returns>Unicode string containing the results of the template rendering.</returns>
-        public string RenderAdhocTemplate(string adhocTemplate, dynamic context)
-        {
-            return _jinja2.RenderTemplateString(_jinja2_env, adhocTemplate, Utils.ConvertToJinjaContext(context));
-        }
-
-        /// <summary>
         /// Add a custom template filter to the Jinja2 environment.
         /// </summary>
         /// <param name="filterName">The name of custom filter.</param>
